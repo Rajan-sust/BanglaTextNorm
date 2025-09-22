@@ -4,13 +4,19 @@
 
 ### installation
 ```bash
-git clone https://github.com/your-repo/BanglaTextNorm.git
+git clone https://github.com/Rajan-sust/BanglaTextNorm.git
 cd BanglaTextNorm
 # virtual environment setup
 python3 -m venv BnTn
 source BnTn/bin/activate
 # install dependencies
-pip install -r requirements.txt
+pip install groq
+```
+
+### Environment Variable
+Set your Groq API key as an environment variable:
+```
+export GROQ_API_KEY=<your-api-key-here>
 ```
 
 ### Usage
