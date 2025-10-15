@@ -85,7 +85,7 @@ Return **only** a JSON array with objects containing "token" and "semiotic" fiel
 
 ## Example
 
-**Input:** পরিমাণ ১২.৮৭ লক্ষ ঘ.মি.
+**Input:** পরিমাণ ১২.৮৭ লক্ষ ঘ. মি.
 
 **Output:**
 ```json
@@ -93,10 +93,10 @@ Return **only** a JSON array with objects containing "token" and "semiotic" fiel
   {"token": "পরিমাণ", "semiotic": "PLAIN"}, 
   {"token": "১২.৮৭", "semiotic": "DECIMAL"}, 
   {"token": "লক্ষ", "semiotic": "PLAIN"}, 
-  {"token": "ঘ.মি.", "semiotic": "ABBREVIATION"}
+  {"token": "ঘ. মি.", "semiotic": "ABBREVIATION"}
 ]
 ```
-**Input:** ১০০ কেজি/হেক্টর
+**Input:** ১০০ কেজি/হেক্টর।
 
 **Output:**
 ```json
@@ -104,18 +104,47 @@ Return **only** a JSON array with objects containing "token" and "semiotic" fiel
   {"token": "১০০", "semiotic": "CARDINAL"},
   {"token": "কেজি", "semiotic": "PLAIN"},
   {"token": "/", "semiotic": "SYMBOL"},
-  {"token": "হেক্টর", "semiotic": "PLAIN"}
+  {"token": "হেক্টর", "semiotic": "PLAIN"},
+  {"token": "।", "semiotic": "SYMBOL"}
 ]
 ```
-**Input:** ৫.৭৫টাকা 
+**Input:** ৫.৭৫/- টাকা 
 
 **Output:**
 ```json
 [
   {"token": "৫.৭৫", "semiotic": "MONEY"},
+  {"token": "/-", "semiotic": "SYMBOL"},
   {"token": "টাকা", "semiotic": "PLAIN"}
 ]
 ```
+
+**Input:** হযরত ঈসা (সা.)
+
+**Output:**
+```json
+[
+  {"token": "হযরত", "semiotic": "PLAIN"},
+  {"token": "ঈসা", "semiotic": "PLAIN"},
+  {"token": "(", "semiotic": "SYMBOL"},
+  {"token": "সা.", "semiotic": "ABBREVIATION"},
+  {"token": ")", "semiotic": "SYMBOL"}
+]
+```
+
+**Input:** ১লা বৈশাখ, ৪ঠা ফেব্রুয়ারি
+**Output:**
+```json
+[
+  {"token": "১লা", "semiotic": "DATE"},
+  {"token": "বৈশাখ", "semiotic": "PLAIN"},
+  {"token": ",", "semiotic": "SYMBOL"},
+  {"token": "৪ঠা", "semiotic": "DATE"},
+  {"token": "ফেব্রুয়ারি", "semiotic": "PLAIN"}
+]
+```
+
+
 
 ## Important Notes
 - Provide **only** the JSON output - no additional text or explanations

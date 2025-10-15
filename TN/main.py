@@ -27,6 +27,7 @@ def main():
     tokens_with_semiotics = tokenize_bangla_sentence(args.text)
 
     tokens_with_semiotics = json.loads(tokens_with_semiotics)
+    print('Tokens with semiotics:', tokens_with_semiotics)
     
     normalized_tokens = []
 
@@ -58,7 +59,7 @@ def main():
             normalized_tokens.append(process_abbreviation(obj["token"], list_of_tokens))
         
         elif obj["semiotic"] == "ACRONYM":
-            normalized_tokens.append(process_acronym(obj["token"], list_of_tokens))
+            normalized_tokens.append(process_acronym(obj["token"]))
         
     normalized_sentence = ' '.join(normalized_tokens)
     print('Initial normalized sentence:', normalized_sentence)
@@ -76,7 +77,7 @@ def main():
 
         <example>
         Input: পরিমাণ ১২.৮৭ লক্ষ ঘ.মি.
-        Output: পরিমাণ বারো লক্ষ আটাত্তর হাজার ঘন্টা মিটার
+        Output: পরিমাণ বারো লক্ষ আটাত্তর হাজার ঘন্টা   মিটার
         Corrected Output: পরিমাণ বারো লক্ষ সাতাশি হাজার ঘন মিটার
         </example>
 
@@ -91,6 +92,13 @@ def main():
         Output: পাঁচ টাকা পঁচাত্তর পয়সা টাকা
         Corrected Output: পাঁচ টাকা পঁচাত্তর পয়সা
         </example>
+
+        <example>
+        Input: লেঃ জেনারেল আজিজ
+        Output: লেঃ   জেনারেল     আজিজ
+        Corrected Output: লেফটেন্যান্ট জেনারেল আজিজ
+        </example>
+        
 
         <instructions>
         - If the output is already correct, return it as-is without any changes.
@@ -111,3 +119,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+"""
+python3 main.py --text "আগামী ২৫ ফেব্রুয়ারি, ২০২৫ জাতীয় বেতন কমিশন চূড়ান্ত প্রতিবেদন জমা দেবে।"
+"""

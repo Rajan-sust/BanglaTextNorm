@@ -63,7 +63,8 @@ def process_abbreviation(abbreviation: str, tokens: list) -> str:
         "সা:": "সাল্লাল্লাহু আলাইহি ওয়া সাল্লাম",
         "রা.": "রাদিআল্লাহু আনহু",
         "রা:": "রাদিআল্লাহু আনহু",
-        "রাঃ": "রাদিআল্লাহু আনহু"
+        "রাঃ": "রাদিআল্লাহু আনহু",
+        "কি.ও.ঘ.": "কিলোওয়াট-ঘণ্টা"
     }
     
     if abbreviation in abbreviations_dict:
@@ -109,11 +110,12 @@ def process_abbreviation(abbreviation: str, tokens: list) -> str:
             }
         ]
     }
-
+    # Implementation coorected: 15 Oct 2025
     if abbreviation in contextual_abbreviations:
-        for context in contextual_abbreviations[abbreviation]:
-            if any(word in context["context"] for word in sentence.split()):
-                return context["replace"]
+        for obj in contextual_abbreviations[abbreviation]:
+            if any(word in obj["context"] for word in tokens):
+                return obj["replace"]
+    print("No context match found for abbreviation:", abbreviation)
     return abbreviation
 
 
@@ -201,7 +203,40 @@ def process_acronym(acronym):
         "COVID-19": "কোভিড নাইনটিন",
         "COVID19": "কোভিড নাইনটিন",
         "SARS-CoV-2": "সার্স কোভ টু",
-        "SARSCoV2": "সার্স কোভ টু" 
+        "SARSCoV2": "সার্স কোভ টু",
+        "ওমেগা–৩": "ওমেগা থ্রি",
+        "UNDP": "ইউএনডিপি",
+        "UNICEF": "ইউনিসেফ",
+        "WHO": "ডব্লিউএইচও",
+        "IMF": "আইএমএফ",
+        "WB": "ডব্লিউবি",
+        "GDP": "জিডিপি",
+        "GNP": "জিএনপি",
+        "NGO": "এনজিও",
+        "NPO": "এনপিও",
+        "BGB": "বিজিবি",
+        "RAB": "র‍্যাব",
+        "DB": "ডিবি",
+        "BSF": "বিএসএফ",
+        "BSFI": "বিএসএফআই",
+        "ATM": "এটিএম",
+        "CD": "সিডি",
+        "DVD": "ডিভিডি",
+        "HIV": "এইচআইভি",
+        "AIDS": "এইডস",
+        "GPS": "জিপিএস",
+        "HSC": "এইচএসসি",
+        "SSC": "এসএসসি",
+        "PSC": "পিএসসি",
+        "BSC": "বিএসসি",
+        "MSc": "এমএসসি",
+        "PhD": "পিএইচডি",
+        "USA": "ইউএসএ",
+        "UK": "ইউকে",
+        "UAE": "ইউএই",
+        "কপ-২৮": "কপ টুয়েন্টি এইট",
+        "Gen-Z": "জেন-জি",
+        "Zen-G": "জেন-জি"
     }
     return mapping.get(acronym, acronym)
 
@@ -334,14 +369,18 @@ def process_cardinal(number):
     """
     # First, convert Bangla digits to English digits if necessary
     # remove commas from the number
+    temp = number
+    print("Processing cardinal number:", number)
     number = number.replace(",", "").strip()
+    print("After removing commas:", number)
 
     number = convert_bndigits_to_endigits(number)
     en_num = int(number) if number.isdigit() else None
     if en_num == 0:
         return "শূন্য"
     
-    num_in_words = int_to_bn_words(en_num, bn_num_to_words) if en_num else number
+    num_in_words = int_to_bn_words(en_num, bn_num_to_words) if en_num else temp
+    
 
     return num_in_words
 
