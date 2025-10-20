@@ -10,11 +10,11 @@ cd BanglaTextNorm
 python3 -m venv BnTn
 source BnTn/bin/activate
 # install dependencies
-pip install groq
+pip install -r requirements.txt
 ```
 
 ### Environment Variable
-Set your Groq API key as an environment variable:
+Set your Groq API key  as an environment variable for LLama multilingual LLM:
 ```
 export GROQ_API_KEY=<your-api-key-here>
 ```
