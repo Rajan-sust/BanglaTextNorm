@@ -1,41 +1,11 @@
-<!-- # Bangla Text Normalization (BanglaTextNorm)
-
-
-
-### installation
-```bash
-git clone https://github.com/Rajan-sust/BanglaTextNorm.git
-cd BanglaTextNorm
-# virtual environment setup
-python3 -m venv BnTn
-source BnTn/bin/activate
-# install dependencies
-pip install -r requirements.txt
-```
-
-### Environment Variable
-Set your Groq API key  as an environment variable for LLama multilingual LLM:
-```
-export GROQ_API_KEY=<your-api-key-here>
-```
-
-### Usage
-
-```bash
-python3 main.py --text "আপনার টেক্সট এখানে"
-```
-
-### License
-This project is licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Others can use, modify, and distribute, but not for commercial purposes. -->
-
-# Kingfisher: Bangla Text Normalization
+# Kingfisher: A hybrid LLM-augmented Bangla text normalization for enhanced text-to-speech
 
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 
-A hybrid LLM-augmented Bangla text normalization system for enhanced text-to-speech applications, achieving 96% accuracy (95%–97% CI).
+### Abstract
+Text normalization (TN), the process of converting non-standard words into their spoken equivalents, is a fundamental pre-processing step for text-to-speech (TTS) systems. While substantial progress has been made in TN for well-resource languages, low-resource languages such as Bangla have received limited attention. We present Kingfisher, a three-stage hybrid framework combining LLM-based tokenization and semiotic class annotation, lexicon-driven context-aware verbalization, and error correction to build an accurate Bangla text normalizer. Experimental evaluations across diverse Bangla texts demonstrate that Kingfisher achieves superior performance, with an overall accuracy of 96% (confidence interval 95%–97%), significantly outperforming the only publicly available Bangla text normalizer, Sparrowhawk. To support further research, we release the Bangla text normalization dataset and make the source code of the text normalization system publicly available1, offering a substantial contribution to the Bangla speech technology community.
 
-## Overview
+### Overview
 
 Kingfisher is a three-stage hybrid framework that combines:
 1. **LLM-based tokenization and semiotic class annotation** using Meta Llama 3.3
