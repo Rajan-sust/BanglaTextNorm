@@ -188,7 +188,8 @@ This project is licensed under [CC BY-NC 4.0](https://creativecommons.org/licens
 - **Email**: `rajan-ictc [at] sust.edu`
 
 
-## How to Cite
+## Citation
+If you use this, please cite the original paper:
 ```
 @article{RAJU2026100201,
 title = {Kingfisher: A hybrid LLM-augmented Bangla text normalization for enhanced text-to-speech},
