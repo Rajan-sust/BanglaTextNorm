@@ -86,14 +86,12 @@ python3 main.py --text "আপনার টেক্সট এখানে"
 
 ```bash
 # Normalize numbers and dates
-python3 main.py --text "৬/১২/২০২২ খ্রিস্টাব্দে ১৪৯৩৫ জন উপস্থিত ছিলেন।"
-
-# Output: ছয় ডিসেম্বর দুই হাজার বাইশ খ্রিস্টাব্দে চৌদ্দ হাজার নয়শ পঁয়ত্রিশ জন উপস্থিত ছিলেন।
+python3 main.py --text "A+ গ্রেড পেতে হলে ৮০% নম্বর প্রয়োজন"
+# Output: এ প্লাস গ্রেড পেতে হলে আশি শতাংশ নম্বর প্রয়োজন
 
 # Normalize money and symbols
-python3 main.py --text "পণ্যের দাম ৳৭.১০ এবং তাপমাত্রা -১৭৩ ডিগ্রী সেলসিয়াস।"
-
-# Output: পণ্যের দাম সাত টাকা দশ পয়সা এবং তাপমাত্রা মাইনাস একশ তিয়াত্তর ডিগ্রী সেলসিয়াস।
+python3 main.py --text "রক্তের গ্রুপ A+"
+# Output: রক্তের গ্রুপ এ পজেটিভ
 ```
 
 ## Dataset
@@ -190,7 +188,21 @@ This project is licensed under [CC BY-NC 4.0](https://creativecommons.org/licens
 - **Email**: `rajan-ictc [at] sust.edu`
 
 
-
+## How to Cite
+```
+@article{RAJU2026100201,
+title = {Kingfisher: A hybrid LLM-augmented Bangla text normalization for enhanced text-to-speech},
+journal = {Natural Language Processing Journal},
+volume = {14},
+pages = {100201},
+year = {2026},
+issn = {2949-7191},
+doi = {https://doi.org/10.1016/j.nlp.2026.100201},
+url = {https://www.sciencedirect.com/science/article/pii/S2949719126000051},
+author = {Rajan Saha Raju and Arif Ahmad and Mohammad Shahidur Rahman},
+keywords = {Text normalization, Text-to-speech (TTS), Bangla, Large language model (LLM)}
+}
+```
 
 ## FAQ
 
